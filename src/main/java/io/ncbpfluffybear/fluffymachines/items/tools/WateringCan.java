@@ -162,7 +162,7 @@ public class WateringCan extends SimpleSlimefunItem<ItemUseHandler> implements C
 
                         if (StorageCacheUtils.hasBlock(b.getLocation())) {
                             if (exoticGardenSuccessChance.getValue() == 0) {
-                                Utils.send(p, "&cYou can not water Exotic Garden plants!");
+                                Utils.send(p, "&cYou cannot water Exotic Garden plants!");
                                 return;
                             }
                             if (random < exoticGardenSuccessChance.getValue()) {
@@ -204,7 +204,7 @@ public class WateringCan extends SimpleSlimefunItem<ItemUseHandler> implements C
         if (updateType == 1) {
 
             if (usesLeft == 0) {
-                Utils.send(p, "&c你需要给你的喷壶加满水!");
+                Utils.send(p, "&cYou need to fill your watering can with water!");
                 return false;
             }
             p.playSound(p.getLocation(), Sound.ENTITY_DROWNED_AMBIENT_WATER, 0.5F, 1F);
@@ -212,12 +212,12 @@ public class WateringCan extends SimpleSlimefunItem<ItemUseHandler> implements C
 
         } else if (updateType == 2) {
             p.playSound(p.getLocation(), Sound.ENTITY_DROWNED_DEATH_WATER, 0.5F, 1F);
-            Utils.send(p, "&a你已经装满了你的喷壶");
+            Utils.send(p, "&aYou have filled your watering can");
             usesLeft = can.getUses().getValue();
 
         } else if (updateType == 3) {
             if (usesLeft == 0) {
-                Utils.send(p, "&c你需要给你的喷壶加满水!");
+                Utils.send(p, "&cYou need to fill your watering can with water!");
                 return false;
             }
             usesLeft = 0;
@@ -226,7 +226,7 @@ public class WateringCan extends SimpleSlimefunItem<ItemUseHandler> implements C
             p.sendMessage("Error");
         }
 
-        lore.set(USE_INDEX, ChatColors.color("&a剩余水量: &e" + usesLeft));
+        lore.set(USE_INDEX, ChatColors.color("&aWater remaining: &e" + usesLeft));
         meta.setLore(lore);
         meta.getPersistentDataContainer().set(usageKey, PersistentDataType.INTEGER, usesLeft);
         item.setItemMeta(meta);
