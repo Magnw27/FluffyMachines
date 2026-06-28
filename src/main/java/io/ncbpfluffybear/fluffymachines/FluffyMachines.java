@@ -102,7 +102,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
 
         // Register McMMO Events
         if (getServer().getPluginManager().isPluginEnabled("McMMO")) {
-            Bukkit.getLogger().log(Level.INFO, "McMMO 已接入!");
+            Bukkit.getLogger().log(Level.INFO, "McMMO has been hooked!");
             getServer().getPluginManager().registerEvents(new McMMOEvents(), this);
         }
 
@@ -128,12 +128,12 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
     public boolean onCommand(@Nonnull CommandSender sender, @Nonnull Command cmd, @Nonnull String label, String[] args) {
 
         if (args.length == 0) {
-            Utils.send(sender, "&c无效的指令");
+            Utils.send(sender, "&cInvalid command");
             return true;
         }
 
         if (!(sender instanceof Player)) {
-            Utils.send(sender, "&c只有玩家才能执行该指令");
+            Utils.send(sender, "&cOnly players can execute this command");
             return true;
         }
 
@@ -148,7 +148,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
                 return true;
             case "VERSION":
             case "V":
-                Utils.send(p, "&e当前版本:" + this.getPluginVersion());
+                Utils.send(p, "&eCurrent version: " + this.getPluginVersion());
                 return true;
         }
 
@@ -157,7 +157,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
                 case "ADDINFO":
 
                     if (args.length != 3) {
-                        Utils.send(p, "&c请指定键名和值");
+                        Utils.send(p, "&cPlease specify a key and value");
 
                     } else {
                         RayTraceResult rayResult = p.rayTraceBlocks(5d);
@@ -166,7 +166,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
                         if (blockData != null) {
                             if (blockData.isDataLoaded()) {
                                 blockData.setData(args[1], args[2]);
-                                Utils.send(p, "&a信息已应用.");
+                                Utils.send(p, "&aInfo applied.");
                             } else {
                                 Slimefun.getDatabaseManager().getBlockDataController().loadBlockDataAsync(
                                         blockData,
@@ -174,13 +174,13 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
                                             @Override
                                             public void onResult(SlimefunBlockData result) {
                                                 blockData.setData(args[1], args[2]);
-                                                Utils.send(p, "&a信息已应用.");
+                                                Utils.send(p, "&aInfo applied.");
                                             }
                                         }
                                 );
                             }
                         } else {
-                            Utils.send(p, "&c你必须看向一个Slimefun方块");
+                            Utils.send(p, "&cYou must look at a Slimefun block");
                         }
                     }
                     return true;
@@ -190,7 +190,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
             }
         }
 
-        Utils.send(p, "&c指令不存在");
+        Utils.send(p, "&cCommand does not exist");
 
         return false;
     }
@@ -207,7 +207,7 @@ public class FluffyMachines extends JavaPlugin implements SlimefunAddon {
         }
 
         if (players > 0) {
-            Bukkit.getLogger().log(Level.INFO, "已自动保存 {0} 位玩家的数据!", players);
+            Bukkit.getLogger().log(Level.INFO, "Automatically saved data for {0} players!", players);
         }
     }
 
