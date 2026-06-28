@@ -70,7 +70,7 @@ public final class Utils {
     }
 
     public static String multiBlockWarning() {
-        return "&c这是个多方块结构!";
+        return "&cThis is a multi-block structure!";
     }
 
     // TODO: Deprecate custom model data method of detecting non interactables
@@ -179,4 +179,3 @@ public final class Utils {
             Bukkit.getScheduler().runTaskLater(FluffyMachines.getInstance(), r, delay) : null;
     }
 }
-
