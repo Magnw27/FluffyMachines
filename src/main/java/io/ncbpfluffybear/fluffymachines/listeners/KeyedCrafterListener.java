@@ -53,7 +53,7 @@ public class KeyedCrafterListener implements Listener {
                 e.cancel();
 
                 if (key == null) {
-                    Utils.send(p, "&c该机器不支持原版物品!");
+                    Utils.send(p, "&cThis machine does not support vanilla items!");
                     return;
                 }
 
@@ -63,9 +63,9 @@ public class KeyedCrafterListener implements Listener {
                     StorageCacheUtils.getMenu(b.getLocation()).replaceExistingItem(SmartFactory.RECIPE_SLOT,
                             SmartFactory.getDisplayItem(key, ((RecipeDisplayItem) sfBlock).getDisplayRecipes())
                     );
-                    Utils.send(p, "&a已设置目标物品为 " + key.getItemName());
+                    Utils.send(p, "&aSet target item to " + key.getItemName());
                 } else {
-                    Utils.send(p, "&c目标物品暂不支持!");
+                    Utils.send(p, "&cTarget item is not supported yet!");
                 }
 
             } else if (sfBlock instanceof AutoCraftingTable) {
@@ -76,7 +76,7 @@ public class KeyedCrafterListener implements Listener {
                 e.cancel();
 
                 if (item.getType() == Material.AIR) {
-                    Utils.send(p, "&c手持物品Shift+右键点击机器以设置配方");
+                    Utils.send(p, "&cHold item and Shift+Right-Click the machine to set the recipe");
                     return;
                 }
 
@@ -84,7 +84,7 @@ public class KeyedCrafterListener implements Listener {
                         AutoCraftingTable.createKeyItem(item.getType())
                 );
 
-                Utils.send(p, "&a已设置目标物品为 " + ItemStackHelper.getDisplayName(item)
+                Utils.send(p, "&aSet target item to " + ItemStackHelper.getDisplayName(item)
                 );
             }
         }
