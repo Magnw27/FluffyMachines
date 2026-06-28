@@ -80,8 +80,8 @@ public class AutoCrafter extends SlimefunItem implements EnergyNetComponent {
             public void newInstance(@Nonnull BlockMenu menu, @Nonnull Block b) {
                 SlimefunBlockData blockData = StorageCacheUtils.getBlock(b.getLocation());
                 if (blockData.getData("enabled") == null || String.valueOf(false).equals(blockData.getData("enabled"))) {
-                    menu.replaceExistingItem(6, new CustomItemStack(Material.GUNPOWDER, "&7启用: &4\u2718", "",
-                        "&e> 点击启用")
+                    menu.replaceExistingItem(6, new CustomItemStack(Material.GUNPOWDER, "&7Enabled: &4\u2718", "",
+                        "&e> Click to enable")
                     );
                     menu.addMenuClickHandler(6, (p, slot, item, action) -> {
                         blockData.setData("enabled", String.valueOf(true));
@@ -89,8 +89,8 @@ public class AutoCrafter extends SlimefunItem implements EnergyNetComponent {
                         return false;
                     });
                 } else {
-                    menu.replaceExistingItem(6, new CustomItemStack(Material.REDSTONE, "&7启用: &2\u2714",
-                        "", "&e> 点击禁用")
+                    menu.replaceExistingItem(6, new CustomItemStack(Material.REDSTONE, "&7Enabled: &2\u2714",
+                        "", "&e> Click to disable")
                     );
                     menu.addMenuClickHandler(6, (p, slot, item, action) -> {
                         blockData.setData("enabled", String.valueOf(false));
@@ -197,8 +197,8 @@ public class AutoCrafter extends SlimefunItem implements EnergyNetComponent {
             });
         }
 
-        preset.addItem(2, new CustomItemStack(new ItemStack(material), "&e使用方法",
-                "", "&b把将要制作的物品配方放入里面", "&4仅支持" + machineName + "&4的配方"
+        preset.addItem(2, new CustomItemStack(new ItemStack(material), "&eHow to use",
+                "", "&bPlace the item recipe to craft", "&4Only supports recipes from " + machineName
             ),
             (p, slot, item, action) -> false);
     }
@@ -324,4 +324,3 @@ public class AutoCrafter extends SlimefunItem implements EnergyNetComponent {
         }
     }
 }
-
