@@ -264,7 +264,7 @@ public final class FluffyItemSetup {
         }).register(plugin);
 
         // Machines
-        new WaterSprinkler(machines, FluffyItems.WATER_SPRINKER,
+        new WaterSprinkler(machines, FluffyItems.WATER_SPRINKLER,
             RecipeType.ENHANCED_CRAFTING_TABLE, new ItemStack[] {
             new ItemStack(Material.IRON_INGOT), SlimefunItems.ELECTRIC_MOTOR, new ItemStack(Material.IRON_INGOT),
             new ItemStack(Material.BUCKET), new ItemStack(Material.DISPENSER), new ItemStack(Material.BUCKET),
