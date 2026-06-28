@@ -47,12 +47,12 @@ public class ExpDispenser extends MultiBlockMachine {
             if (sfBarrel.getStoredItem(barrel).getType() == Material.EXPERIENCE_BOTTLE) {
                 experience += sfBarrel.getStored(barrel) * EXP_PER_BOTTLE;
                 sfBarrel.setStored(barrel, 0);
-                sfBarrel.updateMenu(barrel, StorageCacheUtils.getMenu(barrel.getLocation()), true, sfBarrel.getCapacity(b));
+                sfBarrel.updateMenu(barrel, StorageCacheUtils.getMenu(barrel.getLocation()), true, sfBarrel.getCapacity(barrel));
             }
         }
 
         if (experience == 0) {
-            Utils.send(p, "&c没有收集到经验!");
+            Utils.send(p, "&cNo experience collected!");
         } else {
             p.giveExp(experience);
             Utils.send(p, "&a+" + experience + " XP");
